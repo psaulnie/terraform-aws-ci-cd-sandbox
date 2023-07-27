@@ -26,7 +26,7 @@ terraform { # Terraform settings
 }
 
 provider "aws" { # Configuration of the specified provider
-  region  = "us-west-2" # Region wanted for the server AWS, here London
+  region  = "us-west-2" # Region wanted for the server AWS, here's Oregon
 }
 
 # Definition of components of the infrastructure, might be physical of virtual like an EC2 instance
