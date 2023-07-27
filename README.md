@@ -156,6 +156,12 @@ resource "aws_instance" "app_server" {
 }
 ```
 
+# Delete the instance
+
+```
+$ terraform destroy
+```
+
 # Next things to do
 
 - Create key pair with the instance using Terraform
