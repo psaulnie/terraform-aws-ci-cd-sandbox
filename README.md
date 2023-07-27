@@ -155,3 +155,9 @@ resource "aws_instance" "app_server" {
     }
 }
 ```
+
+# Next things to do
+
+- Create key pair with the instance using Terraform
+- Connect through SSH
+- Activate EC2 instance connect
