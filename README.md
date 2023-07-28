@@ -1,4 +1,4 @@
-# terraform-aws-sandbox
+# terraform-aws-ci-cd-sandbox
 ## Objectives of this project
 
 A sandbox repository to learn about Terraform, AWS & Github CI/CD actions.
