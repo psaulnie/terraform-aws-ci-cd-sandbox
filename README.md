@@ -155,6 +155,59 @@ resource "aws_instance" "app_server" {
     }
 }
 ```
+# Access the created EC2 instance
+
+## Create a key pair
+
+In the console EC2 dashboard:
+
+1. Go to Key pairs
+2. Create key pair button
+3. Add name and click create key pair
+4. The key pair is now created and downloaded
+5. Add this lines in the `main.tf` file:
+    
+    ```bash
+    resource "aws_instance" "app_server" {
+      ami           = "ami-007ec828a062d87a5"
+      instance_type = "t2.micro"
+      key_name      = "tf-key-pair" # Created key pair
+    
+      tags = {
+        Name = "TerraformUbuntuInstance"
+      }
+    }
+    
+    resource "aws_default_vpc" "default" { # Create a default VPC
+       tags = {
+         Name = "Default VPC"
+       }
+    }
+    
+    resource "aws_default_security_group" "default" {
+       vpc_id      = "${aws_default_vpc.default.id}" # Use the create VPC
+     ingress { # Incoming connection
+         # TLS incoming authorized port: 22 and from any ip
+         from_port   = 22
+         to_port     = 22
+         protocol    = "tcp"
+         cidr_blocks     = ["0.0.0.0/0"]
+       }
+     egress { # send data to any ip
+         from_port       = 0
+         to_port         = 0
+         protocol        = "-1"
+         cidr_blocks     = ["0.0.0.0/0"]
+       }
+     }
+    ```
+    
+
+## Connect using SSH
+
+```bash
+$ ssh -i my_ec2_private_key.pem {username}@{public dns}
+```
 
 # Delete the instance
 
