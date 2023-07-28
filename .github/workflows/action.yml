@@ -17,3 +17,12 @@ jobs:
       - name: Wrong formatting found
         if: ${{ failure() && steps.fmt-check.outputs.failure-reason == 'check-failed' }}
         run: echo "terraform formatting check failed"
+    
+      - name: terraform-validate
+        uses: dflook/terraform-validate@v1.29.1
+        with:
+          path: /
+
+      - name: Validate failed
+        if: ${{ failure() && steps.validate.outputs.failure-reason == 'validate-failed' }}
+        run: echo "terraform validate failed"
