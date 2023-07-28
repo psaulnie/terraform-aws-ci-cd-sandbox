@@ -1,5 +1,4 @@
 name: "Terraform format check"
-description: "Learning CI/CD along AWS and Terraform"
 on: [push]
 
 jobs:
