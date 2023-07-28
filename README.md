@@ -1,3 +1,16 @@
+# terraform-aws-sandbox
+## Objectives of this project
+
+A sandbox repository to learn about Terraform, AWS & Github CI/CD actions.
+
+## Features
+
+- Create an EC2 instance with Terraform running Ubuntu
+- SSH keypair setup
+- Github CI/CD actions:
+  - Terraform fmt: check if the .tf file is correctly formatted at each push
+  - Terraform validate: check if the .tf file is syntactically valid and internally consistent
+
 # Implementing an AWS instance with Terraform
 
 ## Export AWS credential
@@ -214,9 +227,3 @@ $ ssh -i my_ec2_private_key.pem {username}@{public dns}
 ```
 $ terraform destroy
 ```
-
-# Next things to do
-
-- Create key pair with the instance using Terraform
-- Connect through SSH
-- Activate EC2 instance connect
